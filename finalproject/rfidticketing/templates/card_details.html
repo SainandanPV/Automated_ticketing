@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Details</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-image: url("https://example.com/card-bg.jpg"); /* Replace with your image URL */
+        background-size: cover;
+        background-attachment: fixed;
+        color: #fff;
+      }
+      .card-container {
+        margin-top: 100px;
+        max-width: 500px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 30px;
+        border-radius: 15px;
+      }
+      .btn-primary {
+        width: 100%;
+      }
+      .btn-light {
+        margin-top: 20px;
+        color: #000;
+      }
+      .btn-history {
+        margin-top: 10px;
+        color: #fff;
+        background-color: #28a745;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container card-container">
+      <h2 class="text-center">Card Details</h2>
+      <p><strong>Name:</strong> {{ profile.user.username }}</p>
+      <p><strong>Age:</strong> {{ profile.age }}</p>
+      <p><strong>Balance:</strong> ${{ card.balance }}</p>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Recharge</button>
+      </form>
+      <!-- Button to view transaction history -->
+      <a href="{% url 'transaction_history' %}" class="btn btn-history">View Transaction History</a>
+      <a href="{% url 'home' %}" class="btn btn-light mt-3">Back to Home</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

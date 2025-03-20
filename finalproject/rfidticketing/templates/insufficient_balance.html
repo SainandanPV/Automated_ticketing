@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insufficient Balance</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Transaction Failed</h1>
+      <p>
+        We're sorry, but your transaction could not be completed due to
+        insufficient balance on your RFID card.
+      </p>
+      <p>Please recharge your card and try again.</p>
+      
+      <!-- Display current balance -->
+      <p>Your current balance: <strong>${{ user_rfid_card.balance }}</strong></p>
+
+      <a href="{% url 'card_details' %}" class="btn">Go to Card Details</a>
+      <a href="{% url 'process_transaction' %}" class="btn">Try Again</a>
+      <a href="{% url 'home' %}" class="btn">Go to Home</a> <!-- Optional: Back to Home -->
+    </div>
+  </body>
+</html>

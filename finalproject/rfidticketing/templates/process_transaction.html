@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Process Transaction</title>
+  </head>
+  <body>
+    <h1>Process Transaction</h1>
+
+    <!-- Display Error Message if Any -->
+    {% if error_message %}
+      <div style="color: red;">
+        <p>{{ error_message }}</p>
+      </div>
+    {% endif %}
+
+    <form method="POST">
+      {% csrf_token %}
+      
+      <!-- RFID Card Input -->
+      <div>
+        <label for="rfid_card">RFID Card UID</label>
+        <input type="text" name="rfid_card" required>
+      </div>
+
+      <!-- Start Latitude Input -->
+      <div>
+        <label for="start_latitude">Start Latitude</label>
+        <input type="number" name="start_latitude" step="any" required>
+      </div>
+
+      <!-- Start Longitude Input -->
+      <div>
+        <label for="start_longitude">Start Longitude</label>
+        <input type="number" name="start_longitude" step="any" required>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
